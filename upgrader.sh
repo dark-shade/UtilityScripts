@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Upgrader -- Debian/Ubuntu Update Tool (Version 1.0)
+# Created by Sankul Rawat [www.sankulrawat.com] (MIT License)
 
 # Exit on error
 set -e
@@ -41,6 +42,7 @@ Options:
 	--help		Shows this help page.
 
 _EOF_
+}
 
 # Execution
 echo "Upgrader -- Debian/Ubuntu Update Tool (Version 1.0)"
