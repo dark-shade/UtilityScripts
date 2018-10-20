@@ -21,20 +21,23 @@ install() {
 	if [ "$PACKAGE_ID" -eq "1" ]; then
 		if [ -d "$HOME/bin" ]; then
 			echo "$HOME/bin directory found."
-			echo "Copying scripts to $HOME/bin..."
-			cp *.sh "$HOME/bin"
-			rm "$HOME/bin/install.sh"
-			echo "Scripts successfully copied."
 		else
 			echo "$HOME/bin directory not found."
 			echo "Creating the $HOME/bin directory..."
 			mkdir "$HOME/bin"
-			echo "Directory successfully created."
-			echo "Copying scripts now..."
-			cp *.sh "$HOME/bin"
-			rm "$HOME/bin/install.sh"
-			echo "Scripts successfully copied."
 		fi
+		
+		echo "Directory successfully created."
+		echo "Copying scripts now..."
+		cp *.sh "$HOME/bin"
+		rm "$HOME/bin/install.sh"
+		
+		for file in $HOME/bin/*.sh
+		do
+			mv "$file" "${file/.sh/}"
+		done
+
+		echo "Scripts successfully copied."
 	fi
 
 	echo "Installation completed without errors."
